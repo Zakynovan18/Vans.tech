@@ -1,0 +1,125 @@
+/* login.css */
+
+/* Umum untuk seluruh body */
+body {
+    background: linear-gradient(135deg, #001998, #811678);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling untuk card login */
+.card {
+    position: relative; /* Untuk memungkinkan pseudo-elemen bekerja */
+    border-radius: 8px;
+    border: none;
+    background: #fff; /* Latar belakang putih */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Supaya tidak ada elemen yang keluar dari border */
+    z-index: 1;
+}
+/* Styling untuk card login dengan border bersinar */
+.card {
+    position: relative; /* Untuk pseudo-elemen */
+    border-radius: 8px;
+    border: 2px solid transparent; /* Border transparan */
+    background: linear-gradient(to bottom, #fff, #fff) padding-box, 
+                linear-gradient(45deg, #007bff, #ff00d4) border-box; /* Gradient border */
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.6), 0 0 30px rgba(255, 0, 212, 0.5); /* Efek bersinar */
+}
+
+/* Efek animasi glowing */
+.card:hover {
+    box-shadow: 0 0 25px rgba(0, 123, 255, 0.8), 0 0 50px rgba(255, 0, 212, 0.7); /* Glowing saat hover */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition */
+}
+
+
+/* Efek border light rotating */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #007bff, #811678, #01c8bb, #ff00d4);
+    background-size: 400% 400%; /* Membuat pola animasi lebih halus */
+    z-index: -1;
+    animation: borderRotate 8s linear infinite;
+}
+
+/* Animasi cahaya berputar */
+@keyframes borderRotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Header card */
+.card-header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 15px;
+}
+
+/* Styling form dan input fields */
+.form-control {
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #007bff;
+}
+
+/* Tombol */
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive design */
+@media (max-width: 767px) {
+    .col-md-6 {
+        max-width: 90%;
+    }
+
+    .card {
+        margin-top: 20px;
+    }
+}
